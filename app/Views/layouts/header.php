@@ -1,7 +1,5 @@
-<div class="contact">
-         <div class="container">
-            <div class="row ">
-               <div class="col-md-6">
-                  <div class="titlepage text_align_left">
-                     <h2>Get In Touch</h2>
-                  </div>
+<div class="container">
+    <h1 class="mt-5 ">Selamat Datang Di Webku</h1>
+    <p class="lead mb-5">Memang webku belum sempurna tetapi aku akan terus belajar untuk membuat webku menjadi lebih baik lagi.....<br/> <small>- Dinar</small></p>
+    <p>Belajar bareng dinar kun.</p>
+</div>

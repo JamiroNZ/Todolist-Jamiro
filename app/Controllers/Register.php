@@ -3,9 +3,14 @@
 namespace App\Controllers;
 
 use CodeIgniter\RESTful\ResourceController;
+use App\Models\UserModel; 
 
 class Register extends ResourceController
 {
+    public function __construct() {
+        $this->userModel = new UserModel();
+    }
+
     /**
      * Return an array of resource objects, themselves in array format
      *
@@ -13,7 +18,7 @@ class Register extends ResourceController
      */
     public function index()
     {
-        //
+        echo view('auth/register');
     }
 
     /**
@@ -43,7 +48,14 @@ class Register extends ResourceController
      */
     public function create()
     {
-        //
+        $payload = [
+            "name" => $this->request->getPost('name'),
+            "email" => $this->request->getPost('email'),
+            "password" => md5($this->request->getPost('password')),
+        ];
+
+        $this->userModel->insert($payload);
+        return redirect()->to('/login');
     }
 
     /**

@@ -31,6 +31,13 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+$routes->group('', ['filter' => 'authMiddleware'], function($routes) {
+    $routes->resource('todo');
+});
+
+$routes->resource('register');
+$routes->resource('login');
+$routes->resource('logout');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

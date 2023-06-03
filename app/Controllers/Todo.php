@@ -3,9 +3,14 @@
 namespace App\Controllers;
 
 use CodeIgniter\RESTful\ResourceController;
+use App\Models\TodoModel; 
 
 class Todo extends ResourceController
 {
+    public function __construct() {
+        $this->todoModel = new TodoModel();
+    }
+
     /**
      * Return an array of resource objects, themselves in array format
      *
@@ -13,7 +18,14 @@ class Todo extends ResourceController
      */
     public function index()
     {
-        //
+        
+        $todos = $this->todoModel->findAll();
+
+        $payload = [
+            "todos" => $todos
+        ];
+
+        echo view('todo/index', $payload);
     }
 
     /**
@@ -33,7 +45,7 @@ class Todo extends ResourceController
      */
     public function new()
     {
-        //
+        echo view('todo/new');
     }
 
     /**
@@ -43,7 +55,15 @@ class Todo extends ResourceController
      */
     public function create()
     {
-        //
+        $payload = [
+            "judul" => $this->request->getPost('judul'),
+            "description" => $this->request->getPost('description'),
+            "status" => $this->request->getPost('status'),
+        ];
+
+
+        $this->todoModel->insert($payload);
+        return redirect()->to('/todo');
     }
 
     /**
@@ -53,8 +73,15 @@ class Todo extends ResourceController
      */
     public function edit($id = null)
     {
-        //
+        $todo = $this->todoModel->find($id);
+        
+        if (!$todo) {
+            throw new \Exception("Data not found!");   
+        }
+        
+        echo view('todo/edit', ["data" => $todo]);
     }
+
 
     /**
      * Add or update a model resource, from "posted" properties
@@ -63,7 +90,14 @@ class Todo extends ResourceController
      */
     public function update($id = null)
     {
-        //
+        $payload = [
+            "judul" => $this->request->getPost('judul'),
+            "description" => $this->request->getPost('description'),
+            "status" => $this->request->getPost('status'),
+        ];
+
+        $this->todoModel->update($id, $payload);
+        return redirect()->to('/todo');
     }
 
     /**
@@ -73,6 +107,7 @@ class Todo extends ResourceController
      */
     public function delete($id = null)
     {
-        //
+        $this->todoModel->delete($id);
+        return redirect()->to('/todo');
     }
 }
