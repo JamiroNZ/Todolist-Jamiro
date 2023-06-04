@@ -56,6 +56,7 @@ class Todo extends ResourceController
     public function create()
     {
         $payload = [
+            "nama" => $this->request->getPost('nama'),
             "judul" => $this->request->getPost('judul'),
             "description" => $this->request->getPost('description'),
             "status" => $this->request->getPost('status'),
@@ -91,6 +92,7 @@ class Todo extends ResourceController
     public function update($id = null)
     {
         $payload = [
+            "nama" => $this->request->getPost('nama'),
             "judul" => $this->request->getPost('judul'),
             "description" => $this->request->getPost('description'),
             "status" => $this->request->getPost('status'),

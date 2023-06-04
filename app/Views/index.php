@@ -5,6 +5,7 @@
         <thead>
             <tr>
                 <td>No.</td>
+                <td>Name</td>
                 <td>TodoName</td>
                 <td>Description</td>
                 <td>Action</td>

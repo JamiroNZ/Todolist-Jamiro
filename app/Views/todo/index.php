@@ -11,6 +11,7 @@
                 <thead>
                     <tr>
                         <th scope="col ">ID</th>
+                        <th scope="col ">Nama</th>
                         <th scope="col ">Judul</th>
                         <th scope="col ">Description</th>
                         <th scope="col ">Status</th>
@@ -22,6 +23,7 @@
                     <?php foreach ($todos as $item): ?>
                     <tr>
                         <td><?= $no += 1; ?></td>
+                        <td><?= $item['nama'] ?></td>
                         <td><?= $item['judul'] ?></td>
                         <td><?= $item['description'] ?></td>
                         <td><?= $item['status'] ?></td>

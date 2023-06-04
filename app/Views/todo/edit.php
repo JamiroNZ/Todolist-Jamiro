@@ -3,6 +3,13 @@
 <?= $this->section('content') ?>
     <form action="/todo/<?= $data['id'] ?>/update" method="post">
         <input type="hidden" name="_method" value="put" />
+
+        <label for="nama">Todo Nama</label>
+        <br />
+        <input type="text" id="nama" placeholder="Input todo nama" name="nama" value="<?= $data['nama'] ?>" />
+        
+        <br />
+        <br />
         <label for="name">Todo Name</label>
         <br />
         <input type="text" id="judul" placeholder="Input todo judul" name="judul" value="<?= $data['judul'] ?>" />

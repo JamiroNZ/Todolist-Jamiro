@@ -14,7 +14,7 @@ class TodoModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['judul', 'description', 'status']; //Wajib diisi
+    protected $allowedFields    = ['nama', 'judul', 'description', 'status']; //Wajib diisi
 
     // Dates
     protected $useTimestamps = false;

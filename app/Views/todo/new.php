@@ -6,6 +6,12 @@
             <h5 class="mb-4">Create new todo</h5>
 
             <form action="/todo" method="post">
+                
+                <div class="form-group">
+                    <label for="example-todo-nama">Nama</label>
+                    <input type="text" class="form-control" id="example-nama" aria-describedby="emailHelp" 
+                        placeholder="Enter nama" required name="nama">
+                </div>
 
                 <div class="form-group">
                     <label for="example-todo-judul">Judul</label>
